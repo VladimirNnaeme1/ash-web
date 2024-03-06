@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>event</title>
+  </head>
+  <body>
+
+    <button id="press">
+      press
+    </button>
+
+
+    <script>
+      document.addEventListener('keydown',(event)=>{
+        if (event.key === 'p'){
+          document.getElementById('victory').play()
+        }
+      })
+    </script>
+  </body>
+  <audio
+   src="sounds/victory.mp3"
+  
+   id="victory">
+  
+  </audio>
+</html>

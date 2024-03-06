@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Bank class
+
+    </title>
+  </head>
+  <body>
+    <input type="text" class="inputValue">
+    <button id="withdraw">-Withdraw</button>
+    <button id="deposit">+Deposit</button>
+    <div id="balance"></div>
+    <script>
+      const withdrawButton = document.getElementById('withdraw')
+      const depositButton = document.getElementById('deposit')
+      let inputValue = document.querySelector('.inputValue')
+      let display = document.getElementById('balance')
+      
+      withdrawButton.addEventListener('click',()=>{
+        
+          let disp = acctBalance.withdraw(Number(inputValue.value))
+        
+      })
+
+      document.addEventListener('keydown',(event)=>{
+        // console.log(event.key)
+        if(event.key === 'w'){
+          let disp = acctBalance.withdraw(Number(inputValue.value))
+        }
+        else if(event.key === 'd'){
+          let disp = acctBalance.deposit(Number(inputValue.value))
+        }
+        else{display.innerText = ''}
+      })
+
+      depositButton.addEventListener('click', ()=>{
+       let disp =  acctBalance.deposit(Number(inputValue.value))
+
+
+      })
+
+
+
+      class bank {
+        constructor(){
+          this.balance = 0
+          display.innerText = `Your current balance is ${this.balance} NGN`
+        }
+
+
+        withdraw(amount){
+          if(this.balance - amount <= 0){
+            display.innerText = `insufficient fund
+your balance is ${this.balance}`
+            return
+          }
+          this.balance -= amount
+          display.innerText = `withdrew ${amount} NGN 
+Your current balance is ${this.balance } NGN`
+         
+        }
+
+        deposit(amount){
+          this.balance += amount
+         display.innerText =  `deposited ${amount} NGN 
+Your current balance is ${this.balance} NGN`
+        }
+
+      }
+      let acctBalance = new bank()
+      
+      
+      
+      //console.log(acctBalance.balance)
+
+
+
+    </script>
+  </body>
+</html>

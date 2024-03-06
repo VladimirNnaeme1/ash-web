@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Promises</title>
+  </head>
+  <body>
+    <script>
+      // const promise1 = new Promise((resolve,reject)=>{
+      //   setTimeout(()=>{
+      //     isReady = [true,false][Math.floor(Math.random() * 2)]
+      //     // isReady ? resolve('soup is ready'): reject('no soup today')
+      //     if(isReady){
+      //       resolve('soup')
+      //     }
+      //     else{
+      //       reject('no soup')
+      //     }
+      //   },2000)
+      // })
+      // // console.log(promise1
+      // // .then(success => console.log({success}))
+      // // .catch(error => console.log({error})))
+
+      // const getSoup = async() =>{
+      //   try{
+      //     const response = await promise1
+      //   console.log(response)
+      //   }
+      //   catch(error){
+      //     console.log(error)
+      //   }
+        
+      // }
+      // getSoup()
+      
+      let review = {
+        rating: null,
+        tip: null
+      }
+      const promise2 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+
+          isReady = [true,false][Math.floor(Math.random() * 2)]
+
+          isReady ? resolve('enjoy your soup'): reject('no soup today')
+
+        },2000)
+      })
+
+      const rate = async() =>{
+        try{
+          review.rating = 5
+          review.tip = 10
+          const soup = await promise2
+          console.log(soup,review)
+
+        }
+        catch(error){
+          review.rating = 0
+          review.tip = 0
+          console.log(error,review)
+        }
+      }
+      rate()
+
+      const sum = async(a,b) =>{
+        try{
+          let response = await a + b
+          console.log(response)
+        }
+        catch(error){
+          console.log('h')
+        }
+      }
+      sum(1,2)
+
+
+    </script>
+  </body>
+</html>

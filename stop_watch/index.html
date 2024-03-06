@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stop Watch</title>
+  </head>
+  <body>
+    <button onclick="startTimer()">
+      Start
+    </button>
+
+    <button onclick="stopTimer()">
+      Stop
+    </button>
+
+    <p class="display">0</p>
+
+    <button onclick="resetTimer()">
+      Reset
+    </button>
+
+    <script>
+       let value = 0
+       let itCounting = false
+       let intervalId;
+      const startTimer =()=>{
+       
+        let display = []
+        if(!itCounting){
+          intervalId = setInterval(()=>{
+          if(value >= 0){
+              value += 1
+            }
+            display.push(value)
+            document.querySelector('.display')
+            .innerHTML=display.length
+           }
+          ,1000)
+        }   
+        }
+
+      const stopTimer = () =>{
+        clearInterval(intervalId)
+        itCounting = false    
+      }
+
+      const resetTimer =()=>{
+        let display = []
+        clearInterval(intervalId)
+          if(value >= 0){
+              value = 0
+            }
+            display.push(value)
+            document.querySelector('.display')
+            .innerHTML=display.length -1
+      }
+          
+           
+
+
+      
+        
+      
+     
+    </script>
+  </body>
+</html>

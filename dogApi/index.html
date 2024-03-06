@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+
+    <div id="dogHTML">
+
+    </div>
+    <button id="refresh">Refresh</button>
+    <script>
+
+      let buttonRefresh = document.getElementById('refresh')
+      buttonRefresh.addEventListener('click',()=>{
+        imageDisplay()
+      })
+
+      const imageDisplay =()=>{
+        let dogImageDiv = document.getElementById('dogHTML')
+      fetch('https://dog.ceo/api/breeds/image/random')
+      .then(response => response.json())
+      .then(json => {console.log(json.message)
+        dogImageDiv.innerHTML = `<img src='${json.message}' width=300  heigth=300/>` 
+      }
+      )
+      }
+      
+    </script>
+  </body>
+  
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Get Random Hero
+
+    </title>
+  </head>
+  <body>
+    <input type="text" id="inputHero">
+    
+    <button id="searchHero">Search</button>
+    <button id="getHeroButton">RANDOM HERO</button>
+    <div id="heroImage">
+
+    </div>
+
+
+    <script>
+      const token = 10223569763528853
+
+      const baseUrl = `https://superheroapi.com/api.php/${token}`
+
+      let inputHero = document.getElementById('inputHero')
+
+      const getSuperhero = (id,name) =>{
+
+        fetch(`${baseUrl}/${id}`)
+        .then(response => response.json())
+        .then(json =>{
+          console.log(json)
+          getHeroInfo(json)
+          
+        })
+      }
+      const getHeroInfo = (character) =>{
+        let name = character.name
+        document.querySelector('heroImage')
+          .innerHTML =`${name}<img src='${character.image.url} height=200 width=200'> ${stats}`
+
+        
+        let stats = Object.keys(character.powerstats).map(
+          stat =>{
+            return `<p> ${stat.toUpperCase()}: ${character.powerstats[stat]} </p>`
+          }
+        ).join('')
+      }
+
+
+
+      const getsearchedSuperHero =(name) =>{
+        
+        fetch(`${baseUrl}/${id}`)
+        .then(response => response.json())
+        .then(json =>{
+          console.log(json)
+          let imageResult = json.results[0]
+          getHeroInfo(imageResult)
+        })
+      }
+
+      document.getElementById('getHeroButton')
+      .addEventListener('click',()=>{
+        let randomNumber = Math.ceil(Math.random()*731)
+        getSuperhero(randomNumber)
+      })
+      document.getElementById('searchHero')
+      .addEventListener('click',()=>{
+        getsearchedSuperHero(inputHero.value)
+      })
+      // console.log(Math.floor(Math.random()*20))
+
+      //coverting an object to an array
+//       let things ={
+//         mangoes:2,
+//         apple:4
+//       }
+//       console.log(Object.keys(things))
+// s
+
+    </script>
+  </body>
+</html>

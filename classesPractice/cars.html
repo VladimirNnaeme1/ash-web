@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      classes
+
+    </title>
+  </head>
+  <body>
+    <script>
+      // let tires = 0 
+      // let cars = {
+      //   lambogini(){
+      //     tires+=1
+      //   }
+      // }
+      // cars.lambogini()
+      // cars.lambogini()
+      // cars.lambogini()
+      // cars.lambogini()
+         
+      // console.log(tires)
+      class car {
+        constructor(name,color,Topspeed){
+          this.name = name
+          this.color = color
+          this.Topspeed = Topspeed
+          this.currentSpeed = 0
+        }
+        getCurrentSpeed(){
+          console.log(this.currentSpped)
+        }
+        drive(){
+          
+          this.currentSpeed += 10
+          console.log( `driving at ${this.currentSpeed} mph`)
+        }
+        brake(){
+          console.log('breaking!')
+          this.currentSpeed -= 10
+          
+        }
+        stop(){
+          console.log('coming to a screeching Halt!')
+          thit.currentSpeed = 0 
+
+        }
+      } 
+      let ferrari = new car ('ferrari', 'red', 250)
+
+      // const nums = [1,2,3,4,5]
+      // nums.forEach(_ => ferrari.drive() )
+      // ferrari.drive()
+      // ferrari.drive()(
+      // console.log(ferrari.name)
+      Array.prototype.myPush =function (num){
+        this[this.length] = num
+        return this
+      }
+      let number = [1,2,3,4]
+      console.log(number.myPush(3))
+
+
+    </script>
+  </body>
+</html>
